@@ -20,7 +20,13 @@ so there is room from improvement yet!
 
 ## Timeline
 
+Additional features in the works:
+
+- [x] Able to include dependencies as either globals (`vendor.js`)
 - [ ] Add a task for test runners
+- [ ] Cache-buster file names in `dist` builds
+- [ ] More demo projects
+  - [x] AngularJs
 
 ## Licence
 

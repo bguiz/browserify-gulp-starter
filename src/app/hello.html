@@ -1,0 +1,8 @@
+<span class="page hello" ng-controller="HelloCtrl as ctrl">
+    <p>Hello: {{ctrl.displayText}}</p>
+    <ul class="links">
+      <li class="link" ng-repeat="link in ctrl.xhrData.parsed">
+        <a href="{{link.url}}">{{link.title}}</a>
+      </li>
+    </ul>
+</span>

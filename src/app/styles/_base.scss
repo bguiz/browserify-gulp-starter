@@ -1,0 +1,15 @@
+.page.hello {
+    p {
+        font-size: 1.25em;
+    }
+
+    .links .link {
+        line-height: 1.25em;
+        list-style:  none;
+
+        a {
+            text-decoration: none;
+            cursor: 'pointer';
+        }
+    }
+}

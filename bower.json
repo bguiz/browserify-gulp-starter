@@ -1,0 +1,29 @@
+{
+  "name": "app",
+  "main": [
+    "/dist/app.min.js",
+    "/dist/app.min.css"
+  ],
+  "version": "0.0.0",
+  "description": "Sample app for browserify-gulp-starter",
+  "authors": [
+    "bguiz"
+  ],
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "gulpfile.js",
+    "node_modules",
+    "bower_components",
+    "src",
+    "gulpfiles",
+    "build"
+  ],
+  "dependencies": {
+    "angular": "~1.2.23",
+    "angular-route": "~1.2.14",
+    "momentjs": "~2.8.1"
+  },
+  "devDependencies": {
+  }
+}
