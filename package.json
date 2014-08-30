@@ -1,6 +1,6 @@
 {
   "name": "browserify-gulp-starter",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A starter project that uses both browserify and gulp in its build toolchain",
   "main": "index.js",
   "scripts": {
