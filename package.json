@@ -1,7 +1,7 @@
 {
   "name": "browserify-gulp-starter",
-  "version": "0.0.1",
-  "description": "A starter project that uses both browserify and gulp in its build toolchain",
+  "version": "0.0.2",
+  "description": "A starter project that uses both browserify and gulp in its build toolchain.\nIncludes demo apps for AngularJs and Famo.us",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,8 @@
     "gulp",
     "seed",
     "starter",
-    "angularjs"
+    "angularjs",
+    "famous"
   ],
   "author": "bguiz",
   "license": "GPLv3",
