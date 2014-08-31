@@ -67,10 +67,18 @@ why not create a pull request and submit your `src-otherframework`?
 This project is built using gulp,
 and the commands that you will run most often should be:
 
-    gulp build  # assembles project for development
-    gulp dist   # does build task, and then optimises for ditribution (concatenation, minification)
-    gulp serve  # does build task, and then listens for changes on project files, doing selective rebuilds
-    gulp clean  # deletes files created by build or dist tasks
+
+    # assembles project for development
+    gulp build
+
+    # does build task, and then optimises for distribution (concatenation, minification)
+    gulp dist
+
+    # does build task, and then listens for changes on project files, doing selective rebuilds
+    gulp serve
+
+    # deletes files created by build or dist tasks
+    gulp clean
 
 There are many others - look through `gulpfiles/tasks/*.js` to find them all.
 
