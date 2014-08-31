@@ -4,7 +4,7 @@
     "/dist/app.min.js",
     "/dist/app.min.css"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Sample app for browserify-gulp-starter",
   "authors": [
     "bguiz"
