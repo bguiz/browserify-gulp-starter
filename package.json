@@ -1,7 +1,7 @@
 {
   "name": "browserify-gulp-starter",
-  "version": "0.0.3",
-  "description": "A starter project that uses both browserify and gulp in its build toolchain.\nIncludes demo apps for AngularJs and Famo.us",
+  "version": "0.0.4",
+  "description": "A starter project that uses both browserify and gulp in its build toolchain.\nIncludes demo apps for AngularJs, Famo.us, and Famous-Angular",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
