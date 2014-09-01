@@ -1,6 +1,7 @@
 var requireDir = require('require-dir');
 
 global.isAngularApp = true;
+global.compileVendorStyles = true;
 
 global.htmlMinOptions = {
     removeComments: true,

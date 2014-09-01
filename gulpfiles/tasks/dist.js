@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-    streamQueue = require('streamqueue'),
     g = require('gulp-load-plugins')({lazy: true});
 
 gulp.task('dist-app-js', ['build'], function() {
@@ -10,7 +9,7 @@ gulp.task('dist-app-js', ['build'], function() {
         appFiles = [
             './build/**/app.annotated.js',
             './build/**/templates-app.js'
-        ]
+        ];
     }
     else {
         appFiles = [
@@ -72,10 +71,17 @@ gulp.task('dist-index', ['dist-vendor'], function() {
 
     return gulp
         .src('./src/app/index.html')
-        .pipe(g.inject(vendorFiles, { ignorePath: '/dist', starttag: '<!-- inject:vendor:{{ext}} -->' }))
+        .pipe(g.inject(vendorFiles, {
+            ignorePath: '/dist/',
+            starttag: '<!-- inject:vendor:{{ext}} -->',
+            addRootSlash: false,
+        }))
         // //NOTE this should, but doesn't work, so falling back on the more explicit starttag option
         // .pipe(g.inject(vendorFiles, { ignorePath: '/dist', name: 'vendor' }))
-        .pipe(g.inject(appFiles, { ignorePath: '/dist' }))
+        .pipe(g.inject(appFiles, {
+            ignorePath: '/dist/',
+            addRootSlash: false,
+        }))
         .pipe(g.htmlmin(global.htmlMinOptions))
         .pipe(gulp.dest('./dist/'));
 });
