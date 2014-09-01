@@ -4,11 +4,16 @@ var gulp = require('gulp'),
 gulp.task('build', ['vendor', 'styles', 'templates', 'browserify'], function() {
     'use strict';
 
-    var vendorFiles = gulp.src([
+    console.log('build');
+
+    var vendorFiles = [
         './build/vendor.js',
         './build/vendor.css'
-    ], { read: false });
-    var files = [
+    ];
+    var vendorFilesSrc = gulp.src(vendorFiles, { read: false });
+    console.log('build vendorFilesSrc', vendorFiles);
+
+    var appFiles = [
         './build/*.js',
         '!./build/vendor*.js',
         './build/*.css',
@@ -16,15 +21,22 @@ gulp.task('build', ['vendor', 'styles', 'templates', 'browserify'], function() {
     ];
     if (global.isAngularApp) {
         //we want to use app.annotated.js instead of app.js
-        files.push('!./build/app.js');
+        appFiles.push('!./build/app.js');
     }
-    var appFiles = gulp.src(files, { read: false });
+    var appFilesSrc = gulp.src(appFiles, { read: false });
 
     return gulp
         .src('./src/app/index.html')
-        .pipe(g.inject(vendorFiles, { ignorePath: '/build', starttag: '<!-- inject:vendor:{{ext}} -->' }))
+        .pipe(g.inject(vendorFilesSrc, {
+            ignorePath: '/build/',
+            starttag: '<!-- inject:vendor:{{ext}} -->',
+            addRootSlash: false,
+         }))
         //NOTE this should, but doesn't work, so we fall back on the more explicit startag
         // .pipe(g.inject(vendorFiles, { ignorePath: '/build', name: 'vendor' }))
-        .pipe(g.inject(appFiles, { ignorePath: '/build' }))
+        .pipe(g.inject(appFilesSrc, {
+            ignorePath: '/build/',
+            addRootSlash: false,
+        }))
         .pipe(gulp.dest('./build/'));
 });

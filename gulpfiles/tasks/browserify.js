@@ -16,7 +16,7 @@ gulp.task('browserify', [], function() {
         packageCache: {},
         fullPaths: true,
         entries: ['./src/app/app.js'],
-        //TODO figure out why debug=true causes a dist build to can ANgularJs DI errors
+        //TODO figure out why debug=true causes a dist build to can AngularJs DI errors
         // debug: true
     });
 
@@ -33,7 +33,7 @@ gulp.task('browserify', [], function() {
             stream = stream
                 .pipe(g.streamify(g.ngAnnotate()))
                 .pipe(g.rename('app.annotated.js'))
-                .pipe(gulp.dest('./build/'))
+                .pipe(gulp.dest('./build/'));
         }
         stream = stream
             .on('end', bundleLogger.end);
