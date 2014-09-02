@@ -1,12 +1,13 @@
 var gulp = require('gulp'),
     jshintStylish = require('jshint-stylish'),
+    options = require('../../gulpoptions'),
     g = require('gulp-load-plugins')({lazy: true});
 
 gulp.task('jshint', [], function() {
     'use strict';
     return gulp
         .src([
-            './src/app/**/*.js'
+            options.appFolder+'**/*.js'
         ])
         .pipe(g.cached('jshint'))
         .pipe(g.jshint('./.jshintrc'))

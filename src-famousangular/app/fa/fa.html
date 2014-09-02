@@ -1,0 +1,38 @@
+<fa-app
+    ng-controller="FaCtrl as ctrl"
+    class="full-screen">
+    <fa-header-footer-layout fa-size="[undefined, undefined]">
+        <fa-modifier fa-translate="[0,0,110]">
+            <fa-surface
+                class="gbcng-fa-header"
+                fa-size="[undefined, 50]"
+                fa-background-color="'#f66'">
+                Header
+            </fa-surface>
+        </fa-modifier>
+        <fa-modifier translate="[0,0,100]">
+            <fa-scroll-view
+                class="gbcng-fa-content"
+                fa-pipe-from="ctrl.contentScrollViewHandler">
+                <!-- <fa-sequential-layout fa-size="[undefined, undefined]"> -->
+                    <fa-surface
+                        class="gbcng-fa-content-item"
+                        ng-repeat="item in ctrl.items"
+                        fa-pipe-to="ctrl.contentScrollViewHandler"
+                        fa-size="[undefined, 100]"
+                        fa-background-color="'#6f6'">
+                        <a href="{{item.url}}" target="_blank">{{item.title}}</a>
+                    </fa-surface>
+                <!-- </fa-sequential-layout> -->
+            </fa-scroll-view>
+        </fa-modifier>
+        <fa-modifier fa-translate="[0,0,110]">
+            <fa-surface
+                class="gbcng-fa-footer"
+                fa-size="[undefined, 50]"
+                fa-background-color="'#66f'">
+                Footer
+            </fa-surface>
+        </fa-modifier>
+    </fa-header-footer-layout>
+</fa-app>

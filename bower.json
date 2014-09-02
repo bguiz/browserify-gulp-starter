@@ -4,7 +4,7 @@
     "/dist/app.min.js",
     "/dist/app.min.css"
   ],
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Sample app for browserify-gulp-starter",
   "authors": [
     "bguiz"
@@ -16,11 +16,11 @@
     "node_modules",
     "bower_components",
     "src",
+    "src-*",
     "gulpfiles",
     "build"
   ],
   "dependencies": {
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
