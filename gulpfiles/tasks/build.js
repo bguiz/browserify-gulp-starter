@@ -1,4 +1,5 @@
 var gulp = require('gulp'),
+    options = require('../../gulpoptions'),
     g = require('gulp-load-plugins')({lazy: true});
 
 gulp.task('build', ['vendor', 'styles', 'templates', 'browserify'], function() {
@@ -19,14 +20,14 @@ gulp.task('build', ['vendor', 'styles', 'templates', 'browserify'], function() {
         './build/*.css',
         '!./build/vendor*.css'
     ];
-    if (global.isAngularApp) {
+    if (options.isAngularApp) {
         //we want to use app.annotated.js instead of app.js
         appFiles.push('!./build/app.js');
     }
     var appFilesSrc = gulp.src(appFiles, { read: false });
 
     return gulp
-        .src('./src/app/index.html')
+        .src(options.appFolder+'index.html')
         .pipe(g.inject(vendorFilesSrc, {
             ignorePath: '/build/',
             starttag: '<!-- inject:vendor:{{ext}} -->',

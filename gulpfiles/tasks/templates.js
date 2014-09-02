@@ -1,20 +1,21 @@
 var gulp = require('gulp'),
+    options = require('../../gulpoptions'),
     g = require('gulp-load-plugins')({lazy: true});
 
 gulp.task('templates', [], function() {
     'use strict';
     var stream =  gulp
         .src([
-            './src/app/**/*.html',
+            options.appFolder+'**/*.html',
             '!./src/app/index.html'
         ])
-        .pipe(g.htmlmin(global.htmlMinOptions));
-    if (global.isAngularApp) {
+        .pipe(g.htmlmin(options.htmlMinOptions));
+    if (options.isAngularApp) {
         stream = stream
             .pipe(g.ngHtml2js({
                 moduleName: function(file) {
                     if (file.base && file.base.indexOf('bower_components') < 0) {
-                        return 'app';
+                        return options.appName;
                     }
                     else {
                         return file.relative.split('/')[0];
