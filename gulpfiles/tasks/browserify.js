@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    streamQueue = require('streamqueue'),
+    options = require('../../gulpoptions'),
     g = require('gulp-load-plugins')({lazy: true});
 
 var browserify = require('browserify');
@@ -15,7 +15,7 @@ gulp.task('browserify', [], function() {
         cache: {},
         packageCache: {},
         fullPaths: true,
-        entries: ['./src/app/app.js'],
+        entries: [options.appFolder+'app.js'],
         //TODO figure out why debug=true causes a dist build to can AngularJs DI errors
         // debug: true
     });
@@ -29,7 +29,7 @@ gulp.task('browserify', [], function() {
             .on('error', handleErrors)
             .pipe(vinylSource('app.js'))
             .pipe(gulp.dest('./build/'));
-        if (global.isAngularApp) {
+        if (options.isAngularApp) {
             stream = stream
                 .pipe(g.streamify(g.ngAnnotate()))
                 .pipe(g.rename('app.annotated.js'))

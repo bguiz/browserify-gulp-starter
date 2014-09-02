@@ -1,11 +1,12 @@
 var gulp = require('gulp'),
+    options = require('../../gulpoptions'),
     g = require('gulp-load-plugins')({lazy: true});
 
 gulp.task('dist-app-js', ['build'], function() {
     'use strict';
 
     var appFiles;
-    if (global.isAngularApp) {
+    if (options.isAngularApp) {
         appFiles = [
             './build/**/app.annotated.js',
             './build/**/templates-app.js'
@@ -46,7 +47,9 @@ gulp.task('dist-vendor', ['dist-app'], function() {
     'use strict';
     var vendorFileList = [
         './build/vendor.min.js',
-        './build/vendor.min.css'
+        './build/vendor.min.css',
+        './build/vendor.min.js.map',
+        './build/vendor.min.css.map'
     ];
 
     return gulp
@@ -70,7 +73,7 @@ gulp.task('dist-index', ['dist-vendor'], function() {
     var vendorFiles = gulp.src(vendorFileList, { read: false });
 
     return gulp
-        .src('./src/app/index.html')
+        .src(options.appFolder+'index.html')
         .pipe(g.inject(vendorFiles, {
             ignorePath: '/dist/',
             starttag: '<!-- inject:vendor:{{ext}} -->',
@@ -82,7 +85,7 @@ gulp.task('dist-index', ['dist-vendor'], function() {
             ignorePath: '/dist/',
             addRootSlash: false,
         }))
-        .pipe(g.htmlmin(global.htmlMinOptions))
+        .pipe(g.htmlmin(options.htmlMinOptions))
         .pipe(gulp.dest('./dist/'));
 });
 
