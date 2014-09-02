@@ -36,27 +36,57 @@ and use that framework's demo app
 
 **For AngularJs**:
 
-    rm src #don't worry, it is a symlink!
-    ln -s src-angularjs src
+Edit `gulpoptions.js`, and set:
+
+    appName: 'app',
+    appFolder: './src-angularjs/app/',
+
+Then install dependencies:
+
     bower install --save angular angular-route
 
 **For Famo.us**:
 
-    rm src
-    ln -s src-famous src
+Edit `gulpoptions.js`, and set:
+
+    appName: 'app',
+    appFolder: './src-famous/app/',
+
+Then install dependencies:
+
     npm install --save famous-polyfill famous
 
 **For Famous-Angular**:
 
+Edit `gulpoptions.js`, and set:
+
+    appName: 'app',
+    appFolder: './src-famousangular/app/',
+
+Then install dependencies:
+
     rm src
     ln -s src-famousangular src
+    npm install --save famous
+    bower install --save angular angular-route famous-angular
+
+For the Famous-Angular flickrous (by Zack Brown):
+
+Edit `gulpoptions.js`, and set:
+
+    appName: 'app',
+    appFolder: './src-famousangular-flickrous/app/',
+
+Then install dependencies:
+
     npm install --save famous
     bower install --save angular famous-angular
     # The following bower packages are not necessary for all famous-angular apps, just this one
     bower install --save angular-animate angular-cookies angular-touch angular-sanitize angular-resource angular-ui-router angular-route underscore
 
-Note: `gulp dist` currently does not work for Famous-Angular.
-There is currently a bug that occurs when one of the angular dependencies gets minified,
+Note: Currently , `gulp build` and `gulp serve` work,
+but `gulp dist` does not work for Famous-Angular flickrous app.
+There is a bug that occurs when one of the angular dependencies gets minified,
 that appears to be DI related.
 
 For any other web application, you will need to create the initial project yourself.
@@ -79,7 +109,6 @@ why not create a pull request and submit your `src-otherframework`?
 
 This project is built using gulp,
 and the commands that you will run most often should be:
-
 
     # assembles project for development
     gulp build
@@ -106,7 +135,8 @@ Additional features in the works:
 - [x] More demo projects
   - [x] AngularJs
   - [x] Famo.us
-  - [ ] Famous-Angular
+  - [x] Famous-Angular
+  - [ ] Famous-Angular flickrous
     - [ ] fix `gulp dist`
 
 ## Licence

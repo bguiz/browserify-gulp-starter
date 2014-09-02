@@ -1,6 +1,6 @@
 {
   "name": "browserify-gulp-starter",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A starter project that uses both browserify and gulp in its build toolchain.\nIncludes demo apps for AngularJs, Famo.us, and Famous-Angular",
   "main": "index.js",
   "scripts": {
